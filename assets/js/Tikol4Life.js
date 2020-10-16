@@ -1,6 +1,3 @@
-$(document).ready(function(){
-    
-});
 function generate(){
     var r_url = $("#r_url").val();
     var r_method = $("#r_method").val();
