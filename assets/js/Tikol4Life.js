@@ -3,7 +3,6 @@ function generate(){
     var r_method = $("#r_method").val();
     var r_headers = $("#r_headers").val();
     var r_formdata = $("#r_formdata").val();
-
     if (r_url.length == 0 || r_method.length == 0 || r_headers.length == 0) {
         $('#Modal').modal('show');
         $('#ModalTitle').text("REQ GENERATOR");
@@ -13,6 +12,7 @@ function generate(){
     }
     $("#r_results").text("$ch = curl_init();\n");
     $("#r_results").append("curl_setopt($ch, CURLOPT_URL, '"+ r_url +"');\n");
+    $("#r_results").append("curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);\n");
     if(r_method == "POST"){
         $("#r_results").append("curl_setopt($ch, CURLOPT_POST, 1);\n");
     }else{
@@ -34,17 +34,12 @@ function generate(){
     $("#r_results").append("$curl = curl_exec($ch);\n");
     $("#r_results").append("curl_close($ch);\n");
     $("#r_results").append("echo $curl;");
-    
     var x = document.getElementById("r_results_id");
     x.style.display = "block";
     var y = document.getElementById("code");
     y.style.display = "block";
 
 }
-
-
-
-
 function credits(){
     if(!$("#footer").length){
         $("#container").append('<div class="footer" id="footer"><center><p style="color: #FFFFFF">Tikol4Life</p></center></div>');
