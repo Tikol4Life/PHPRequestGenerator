@@ -52,19 +52,11 @@
 						<textarea class="form-control" style="background: transparent;color: #FFFFFF;overflow:hidden" id="r_formdata" rows="4" required></textarea>
 					</div>
 					<div class="form-group">
-						<div class="row">
-							<div class="col-6">
-								<button  type="button" class="btn btn-outline-danger btn-block" onclick="save();">TEST</button>
-							</div>
-							<div class="col-6">
-								<button  type="button" class="btn btn-outline-danger btn-block" onclick="generate();">GENERATE</button>
-							</div>
-						</div>
+						<button  type="button" class="btn btn-outline-danger btn-block" onclick="generate();">GENERATE</button>
 					</div>
 					<div class="form-group">
-						<label for="r_results" style="color: #FFFFFF; margin-left: 20px">Results</label>
-						
-							<code>
+						<label for="r_results" id="r_results_id" style="color: #FFFFFF; margin-left: 20px; display: none">Results</label>
+							<code id="code" style="display: none">
 								<pre>
 									<p style="color: #FFFFFF" id="r_results">
 										
