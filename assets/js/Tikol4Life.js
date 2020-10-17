@@ -1,11 +1,14 @@
 $(document).ready(function(){
     $("#r_results").text("");
 });
+function encodeHTML(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+}
 function generate(){
-    var r_url = $("#r_url").val();
-    var r_method = $("#r_method").val();
-    var r_headers = $("#r_headers").val();
-    var r_formdata = $("#r_formdata").val();
+    var r_url = encodeHTML($("#r_url").val());
+    var r_method = encodeHTML($("#r_method").val());
+    var r_headers = encodeHTML($("#r_headers").val());
+    var r_formdata = encodeHTML($("#r_formdata").val());
 
     if (r_url.length == 0 || r_method.length == 0 || r_headers.length == 0) {
         $('#Modal').modal('show');
